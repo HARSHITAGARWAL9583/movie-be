@@ -4,6 +4,11 @@ import jwt from 'jsonwebtoken';
 import nodemailer from 'nodemailer';
 import User from '../models/User.js';
 
+
+
+
+
+
 const MAIL_HOST = process.env.MAIL_HOST || 'smtp.gmail.com';
 const MAIL_USER = process.env.MAIL_USER || process.env.MAlL_USER || process.env.EMAIL_USER;
 const MAIL_PASS = process.env.MAIL_PASS || process.env.MAlL_PASS || process.env.EMAIL_PASS;
@@ -121,6 +126,7 @@ const verifyOTP = async (req, res) => {
 
     if (!email || !otp) {
       return res.status(400).json({ message: 'Email and OTP are required' });
+      console.looog("first");
     }
 
     // Find user
@@ -132,6 +138,7 @@ const verifyOTP = async (req, res) => {
     // Check OTP validity
     if (user.otp !== otp) {
       return res.status(400).json({ message: 'Invalid OTP' });
+      conosle.log(first)
     }
 
     if (new Date() > user.otpExpiry) {
