@@ -136,9 +136,14 @@ export const getTMDBMovieDetails = async (movieName) => {
 // YouTube API - Get trailer
 export const getYoutubeTrailer = async (movieName) => {
   try {
+<<<<<<< HEAD
     const query = encodeURIComponent(`${movieName} trailer official`);
     const response = await axios.get(
       `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&q=${query}&part=snippet&type=video&maxResults=1`
+=======
+    const response = await axios.get(
+      `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&q=${movieName} trailer&part=snippet&type=video&maxResults=1`
+>>>>>>> b34c7aee01a2b775b9b3cd4660e2f71a63c24ece
     );
 
     if (response.data.items.length === 0) {
@@ -146,12 +151,17 @@ export const getYoutubeTrailer = async (movieName) => {
     }
 
     const videoId = response.data.items[0].id.videoId;
+<<<<<<< HEAD
     return `https://www.youtube.com/watch?v=${videoId}`;
+=======
+    return `https://www.youtube.com/embed/${videoId}`;
+>>>>>>> b34c7aee01a2b775b9b3cd4660e2f71a63c24ece
   } catch (error) {
     console.error(`❌ YouTube API Error for "${movieName}":`, error.message);
     return null;
   }
 };
+<<<<<<< HEAD
 
 // TMDB API - Get popular movies
 export const getTMDBPopularMovies = async () => {
@@ -206,3 +216,5 @@ export const getTMDBPopularMovies = async () => {
     return [];
   }
 };
+=======
+>>>>>>> b34c7aee01a2b775b9b3cd4660e2f71a63c24ece
