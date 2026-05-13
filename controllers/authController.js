@@ -126,7 +126,7 @@ const verifyOTP = async (req, res) => {
 
     if (!email || !otp) {
       return res.status(400).json({ message: 'Email and OTP are required' });
-      // console.looog("first");
+      console.looog("first");
     }
 
     // Find user
@@ -138,7 +138,7 @@ const verifyOTP = async (req, res) => {
     // Check OTP validity
     if (user.otp !== otp) {
       return res.status(400).json({ message: 'Invalid OTP' });
-      // conosle.log(first)
+      conosle.log(first)
     }
 
     if (new Date() > user.otpExpiry) {
