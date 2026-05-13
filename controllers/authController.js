@@ -126,6 +126,7 @@ const verifyOTP = async (req, res) => {
 
     if (!email || !otp) {
       return res.status(400).json({ message: 'Email and OTP are required' });
+      console.looog("first");
     }
 
     // Find user
